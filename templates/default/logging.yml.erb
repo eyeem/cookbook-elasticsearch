@@ -61,7 +61,7 @@ appender:
     facility: local0
     layout:
       type: pattern
-      conversionPattern: "[<% @syslog_label %>][%d{ISO8601}][%-5p][%-25c] %m%n"
+      conversionPattern: "[<%= @syslog_label %>][%d{ISO8601}][%-5p][%-25c] %m%n"
 
   index_search_slow_log_file:
     type: dailyRollingFile
