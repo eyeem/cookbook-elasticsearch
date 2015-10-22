@@ -22,6 +22,7 @@ class Chef
     attribute(:template_logging_yml, kind_of: String, default: 'logging.yml.erb')
 
     attribute(:logging, kind_of: Hash, default: {})
+    attribute(:syslog_label, kind_of: String, default: 'elasticsearch')
 
     attribute(:java_home, kind_of: String, default: nil)
     attribute(:es_home, kind_of: String, default: '/usr/local')

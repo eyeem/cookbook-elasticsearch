@@ -27,7 +27,7 @@
 #
 
 es.logger.level: INFO
-rootLogger: INFO, console, file
+rootLogger: INFO, console, file, syslog
 
 # ----- Configuration set by Chef ---------------------------------------------
 <% @logging.sort.each do |key, value| %>
@@ -55,12 +55,13 @@ appender:
       conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
 
   syslog:
-    type:syslog
-      syslogHost: localhost:514
-      facility: local3
-      layout:
-        type: pattern
-        conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
+    type: syslog
+    header: true
+    syslogHost: localhost:514
+    facility: local0
+    layout:
+      type: pattern
+      conversionPattern: "[<% @syslog_label %>][%d{ISO8601}][%-5p][%-25c] %m%n"
 
   index_search_slow_log_file:
     type: dailyRollingFile
