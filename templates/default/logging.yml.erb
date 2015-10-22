@@ -54,6 +54,14 @@ appender:
       type: pattern
       conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
 
+  syslog:
+    type:syslog
+      syslogHost: localhost:514
+      facility: local3
+      layout:
+        type: pattern
+        conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
+
   index_search_slow_log_file:
     type: dailyRollingFile
     file: ${path.logs}/${cluster.name}_index_search_slowlog.log
