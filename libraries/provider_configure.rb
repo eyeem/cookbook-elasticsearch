@@ -95,7 +95,7 @@ class Chef
           owner new_resource.user
           group new_resource.group
           mode 0755
-          variables { logging: new_resource.logging, :syslog_label: new_resource.syslog_label }
+          variables { logging: new_resource.logging, syslog_label: new_resource.syslog_label }
           action :nothing
         end
         logging_template.run_action(:create)
